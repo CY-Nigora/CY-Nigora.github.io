@@ -1,519 +1,178 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 7.1.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Emanon's Nest</title><meta name="author" content="Emanon"><meta name="copyright" content="Emanon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Emanon&#39;s Nest">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Emanon&#39;s Nest">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="Emanon">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://example.com/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>Emanon's Nest</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Emanon's Nest</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Emanon\'s Nest',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-02-22 07:03:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/21/Reglungstechnik/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Emanon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emanon's Nest">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/02/21/Reglungstechnik/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-02-22 06:16:50" itemprop="dateCreated datePublished" datetime="2024-02-22T06:16:50+08:00">2024-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-08 00:05:26" itemprop="dateModified" datetime="2023-12-08T00:05:26+08:00">2023-12-08</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-          <h1 id="Reglungstechnik-Ⅰ-Ⅱ"><a href="#Reglungstechnik-Ⅰ-Ⅱ" class="headerlink" title="Reglungstechnik Ⅰ+Ⅱ"></a>Reglungstechnik Ⅰ+Ⅱ</h1><hr>
-<h2 id="PART-1-拉普拉斯变换"><a href="#PART-1-拉普拉斯变换" class="headerlink" title="PART 1  拉普拉斯变换"></a>PART 1  拉普拉斯变换</h2><h3 id="1-1-问题的产生与分析"><a href="#1-1-问题的产生与分析" class="headerlink" title="1.1  问题的产生与分析"></a>1.1  问题的产生与分析</h3><p>在 <em><strong>Reglungstechnik Ⅰ</strong></em> 的学习中，我发现一些有趣的问题：</p>
-<blockquote>
-<p>为什么拉普拉斯变换能成为控制论中一个经典的数学方法？</p>
-</blockquote>
-<blockquote>
-<p>如何从数学上、以及物理上理解拉普拉斯变换？</p>
-</blockquote>
-<p>我们先看第一个问题：</p>
-<blockquote>
-<p>为什么拉普拉斯变换能成为控制论中一个经典的数学方法？</p>
-</blockquote>
-<p>第一个问题是非常好回答的。系统论与控制论中涉及了大量的微分运算，在系统建模中，我们无法规避地需要求解大量低阶以及高阶的微分算子，这大大增加了系统分析的复杂性。因此，如果能实现一个简单的变换，将原本复杂的微分运算转化成我们最熟知的四则运算，那就帮大忙了。</p>
-<p>而我们所熟悉的傅里叶变换提供了这样一条捷径：<br>$$ F(\omega) &#x3D; \int_{-\infin}^{\infin} f(t) \cdot e^{-jwt} \mathrm{d}t \tag{1} $$</p>
-<p>当 $ x(t) &#x3D; \frac{\mathrm{d}g(t)}{\mathrm{d}t} $ 时，由$(1)$可得：<br>$$ \mathscr{F}{x(t)} &#x3D; X(\omega) &#x3D; \int_{-\infin}^{\infin} \frac{\mathrm{d}g(t)}{\mathrm{d}t} \cdot e^{-jwt} \mathrm{d}t \tag{2}$$</p>
-<p>其中：<br>$$  \frac{\mathrm{d}g(t)}{\mathrm{d}t} \cdot e^{-jwt} &#x3D; \frac{\mathrm{d}(g(t)\cdot e^{-jwt})}{\mathrm{d}t} - g(t) \cdot \frac{\mathrm{d}e^{-jwt}}{\mathrm{d}t} \tag{3}$$</p>
-<p>将$(3)$带入$(2)$中得：<br>$$ X(\omega) &#x3D; 0 + j\omega \cdot G(\omega) \tag{4}  $$</p>
-<p>因为是定积分，交换积分&#x2F;微分次序后，第一项结果为0。当然这种思路其实存在BUG,只是这里恰好成立。$(3)$中等式右侧的第一项这里并不见得符合一致收敛的条件，也就是说不一定可以交换积分&#x2F;微分顺序。所以通常用分部积分的思想求解：<br>$$<br>    \begin{aligned}<br>    \int_{-\infin}^{\infin} \frac{\mathrm{d}g(t)}{\mathrm{d}t} \cdot e^{-jwt} \mathrm{d}t<br>    &amp;&#x3D; \int_{-\infin}^{\infin} e^{-jwt} \mathrm{d}g(t)  \<br>    &amp;&#x3D; g(t) \cdot e^{-jwt} |<em>{-\infin}^{+\infin}  - \int</em>{-\infin}^{\infin}g(t) \mathrm{d} e^{-jwt}\<br>    &amp;&#x3D; 0 + j\omega \int_{-\infin}^{\infin} g(t) \cdot e^{-jwt} \mathrm{d}t \<br>    \end{aligned}<br>    \tag{5}<br>$$</p>
-<p>对于第一项，由于被积函数满足迪利克雷条件，在定义域内有限连续且绝对可积，满足在无穷远处取0，故第一项为0。总而言之：<br>$$ \mathscr{F}{ \frac{\mathrm{d}g(t)}{\mathrm{d}t} } &#x3D; j\omega \cdot G(\omega) \tag{6} $$</p>
-<p>这是一个相当优雅而伟大的表达，这意味着，在一个线性系统内，我们可以将微分运算转化为四则运算，这大大方便了系统的分析过程。通过傅里叶变换，我们可以用轻松地对输入&#x2F;输出量建立等式关系，通过特定的输入获得频域上特定的输出响应，再通过一步傅里叶反变换即可得到对应输出在时域上的响应了，也就是：<br>$$ f(t) &#x3D; \mathscr{F}^{-1}{ F(\omega) } &#x3D; \frac{1}{2\pi} \int_{-\infin}^{\infin} F(\omega)\cdot e^{+jwt} \mathrm{d}\omega \tag{7}$$</p>
-<p>拉普拉斯变换是在傅里叶变化上的进一步简化。事实上，当我们进行第一步系统建模时，我们暂时不需要考虑系统与频率间的具体关系，譬如系统的截止频率、输出相移等等信息。为了运算的便捷性，我们干脆令：<br>$$ j\omega &#x3D; s \tag{8}$$</p>
-<p>其实这也正是拉普拉斯变换的表示形式：<br>$$ F(s) &#x3D; \mathscr{L}{ f(t) } &#x3D; \int_{0_-}^{\infin} f(t) \cdot e^{-st} \mathrm{d}t \tag{9} $$</p>
-<p>考虑到积分对象的有界性，这里设$f(t)$的定义域存在下界，也就是$t\in (0_-,\infin)$，这也是在控制系统中经典的时域范围，即大于等于时间零点时，输入&#x2F;输出才有意义。</p>
-<p>使用拉普拉斯变换，我们可以轻易的表示含微分算子的系统模型。假设有：<br>$$ m\frac{\mathrm{d}^2 y(t)}{\mathrm{d}t} + n\frac{\mathrm{d}y(t)}{\mathrm{d}t} &#x3D; a\frac{\mathrm{d}^2x(t)}{\mathrm{d}t} + b\frac{\mathrm{d}x(t)}{\mathrm{d}t} + cx + d \tag{10} $$</p>
-<p>代入$(5)$、$(7)$可得：<br>$$ (ms^2 + ns)\cdot Y(s) &#x3D; (as^2 + bs + c + d \cdot \frac{1}{s})X(s) \tag{11}$$</p>
-<p>考虑到其实此时$(5)$的定义域其实已经变为$t\in (0_-,\infin)$，此时对应的第一项将不一定为0，因此改写$(5)$对应拉普拉斯变换的正确形式应为：<br>$$<br>\begin{aligned}<br>   \mathscr{L}{ \frac{\mathrm{d}y(t)}{\mathrm{d}t} }<br>    &amp;&#x3D; y(t) \cdot e^{-jwt} |<em>{0</em>-}^{\infin} + sY(s)  \<br>    &amp;&#x3D;  0 - y(0_-) + + sY(s) \<br>    &amp;&#x3D; sY(s) - y(0_-)<br>    \end{aligned}<br>    \tag{12}<br>$$</p>
-<p>从而快速建立起输出与输入之间的关系。当需要考虑频率响应时，再令$s&#x3D;j\omega$对进行分析即可。</p>
-<p>结合之前的内容，我们接着回答最开始提出的第二个问题：</p>
-<blockquote>
-<p>如何从数学上、以及物理上理解拉普拉斯变换？</p>
-</blockquote>
-<p>对比公式$(1)$与$(9)$，可以发现一个很巧妙的点。我们通过公式(8)实现的取等并不仅仅实现了暂时忽略频率所带来的分析效率的提升，更使得原来的映射对象，从频域转换到了复频域。</p>
-<p>在傅里叶变换的前提下，原函数需要符合迪利克雷条件所带来的限制，但这对于工程中的很多常用输入都是无能为力的。譬如阶跃输入，因为其不满足定义域内无限可积的条件。而这一点短缺正是由傅里叶变换中$e^{-j\omega t}$这一项所掣肘的。$e^{-j\omega t}$将在时移的过程中始终做螺旋圆周运动，无法起到帮助收敛的作用。</p>
-<p>而拉普拉斯变换中，$s&#x3D;\sigma+j\omega$，$\sigma$的引入以及 $s$ 的定义使得被积函数能在定义域内收敛，同时$(0_-,\infin)$的定义域范围进一步扩大了应用范围。</p>
-<h3 id="1-2-数学推导"><a href="#1-2-数学推导" class="headerlink" title="1.2 数学推导"></a>1.2 数学推导</h3><h4 id="1-21-拉普拉斯初值定理"><a href="#1-21-拉普拉斯初值定理" class="headerlink" title="1.21 拉普拉斯初值定理"></a>1.21 拉普拉斯初值定理</h4><p>由$(12)$可得：<br>$$<br>\begin{aligned}<br>   sY(s) - y(0_-)<br>    &amp;&#x3D; \mathscr{L}{ \frac{\mathrm{d}y(t)}{\mathrm{d}t} }  \<br>    &amp;&#x3D; \int_{0_-}^{\infin} \frac{\mathrm{d}y(t)}{\mathrm{d}t} \cdot e^{-st} \mathrm{d}t  \<br>    &amp;&#x3D; \int_{0_-}^{0_+} \frac{\mathrm{d}y(t)}{\mathrm{d}t} \cdot e^{-st} \mathrm{d}t + \int_{0_+}^{\infin} \frac{\mathrm{d}y(t)}{\mathrm{d}t} \cdot e^{-st} \mathrm{d}t \<br>    &amp;&#x3D; y(t)\cdot e^{-st}|<em>{0</em>-}^{0_+} - \int_{0_-}^{0_+} y(t) \mathrm{d} e^{-st} + \int_{0_+}^{\infin} \frac{\mathrm{d}y(t)}{\mathrm{d}t} \cdot e^{-st} \mathrm{d}t \<br>    &amp;&#x3D; y(0_+) - y(0_-) + s\int_{0_-}^{0_+} y(t)\cdot e^{-st}\mathrm{d}t  + \int_{0_+}^{\infin} \frac{\mathrm{d}y(t)}{\mathrm{d}t} \cdot e^{-st} \mathrm{d}t \<br>    &amp;&#x3D; y(0_+) - y(0_-) + 0  + \int_{0_+}^{\infin} \frac{\mathrm{d}y(t)}{\mathrm{d}t} \cdot e^{-st} \mathrm{d}t<br>    \end{aligned}<br>    \tag{13}<br>$$</p>
-<p>从而有：<br>$$<br>sY(s) &#x3D; y(0_+) + \int_{0_+}^{\infin} \frac{\mathrm{d}y(t)}{\mathrm{d}t}\cdot e^{-st} \mathrm{d}t \tag{14}<br>$$</p>
-<p>令$s\to \infin$，第四项为零，原式等于：<br>$$<br>\lim_{s\to\infty} sY(s) &#x3D; y(0_+) \tag{15}<br>$$</p>
-<p>得解。</p>
-<h4 id="1-22-拉普拉斯终值定理"><a href="#1-22-拉普拉斯终值定理" class="headerlink" title="1.22 拉普拉斯终值定理"></a>1.22 拉普拉斯终值定理</h4><p>由$(14)$，令$s\to 0$可得：<br>$$<br>\begin{aligned}<br>    \lim_{s\to 0} sY(s)<br>    &amp;&#x3D; y(0_+) + \lim_{s\to 0}\int_{0_+}^{\infin} \frac{\mathrm{d}y(t)}{\mathrm{d}t}\cdot e^{-st} \mathrm{d}t  \<br>    &amp;&#x3D; y(0_+) + \lim_{t\to \infin}y(t) - y(0_+) \<br>    &amp;&#x3D; \lim_{t\to \infin}y(t)  \<br>    \end{aligned}<br>    \tag{16}<br>$$</p>
-<p>得解。</p>
-<hr>
-<h2 id="PART-2-线性系统的稳定性"><a href="#PART-2-线性系统的稳定性" class="headerlink" title="PART 2  线性系统的稳定性"></a>PART 2  线性系统的稳定性</h2><h3 id="2-1-线性系统识别"><a href="#2-1-线性系统识别" class="headerlink" title="2.1 线性系统识别"></a>2.1 线性系统识别</h3><p>判断线性系统稳定性的前提是确认系统属于线性系统的范畴。常用的判断方法有两种：</p>
-<blockquote>
-<p>定义法：使用公式定义去识别系统行为是否线性。</p>
-</blockquote>
-<p>定义法包含了两个条件：</p>
-<ol>
-<li>叠加性：<br>$$<br>F(a(t) + b(t)) &#x3D; F(a(t)) + F(b(t)) \tag{1}<br>$$</li>
-<li>齐次性：<br>$$<br>F(const\cdot a(t)) &#x3D; const \cdot F(a(t)) \tag{2}<br>$$</li>
-</ol>
-<p>代入系统方程进行验证即可，但对于一些复杂的系统方程，需要假设输入&#x2F;输出才能进行验证，比较麻烦。</p>
-<blockquote>
-<p>公式法：将系统方程进行拉氏变换后判断是否能改写为$\frac{Output(s)}{Input(s)}$恰好等于一个分式的形式。</p>
-</blockquote>
-<p>举一个例子：<br>$$<br>\dot{x} &#x3D; -\frac{2}{3}x + \frac{1}{2}u + \frac{1}{2} \tag{3}<br>$$</p>
-<p>进行拉式变换后：<br>$$<br>sX(s) &#x3D; -\frac{2}{3}X(s)+ \frac{1}{2}U(s) + \frac{1}{2s} \tag{4}<br>$$</p>
-<p>很明显，公式$(4)$不能被化简成输出除以输入刚好为一个分式的形式，这意味着系统方程内存在输出&#x2F;输入变量的高次项或独立于输出&#x2F;输入变量的常数项，因此不符合线性系统的定义，为一个非线性的系统。</p>
-<h3 id="2-2-稳定性判据"><a href="#2-2-稳定性判据" class="headerlink" title="2.2 稳定性判据"></a>2.2 稳定性判据</h3><hr>
-<h2 id="PART-3-非线性系统的稳定性"><a href="#PART-3-非线性系统的稳定性" class="headerlink" title="PART 3  非线性系统的稳定性"></a>PART 3  非线性系统的稳定性</h2><h3 id="3-1-非线性系统稳定性分析"><a href="#3-1-非线性系统稳定性分析" class="headerlink" title="3.1 非线性系统稳定性分析"></a>3.1 非线性系统稳定性分析</h3><hr>
-<h2 id="PART-4-离散-数字控制系统"><a href="#PART-4-离散-数字控制系统" class="headerlink" title="PART 4  离散&#x2F;数字控制系统"></a>PART 4  离散&#x2F;数字控制系统</h2><h3 id="4-1-z变换的意义和推导"><a href="#4-1-z变换的意义和推导" class="headerlink" title="4.1 z变换的意义和推导"></a>4.1 z变换的意义和推导</h3>
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
       
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Emanon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emanon's Nest">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/02/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-02-22 00:39:22" itemprop="dateCreated datePublished" datetime="2024-02-22T00:39:22+08:00">2024-02-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
       }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Emanon's Nest"><span class="site-name">Emanon's Nest</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Emanon's Nest</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/21/Reglungstechnik/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-21T22:16:50.744Z" title="发表于 2024-02-22 06:16:50">2024-02-22</time></span></div><div class="content">Reglungstechnik Ⅰ+Ⅱ
+PART 1  拉普拉斯变换1.1  问题的产生与分析在 Reglungstechnik Ⅰ 的学习中，我发现一些有趣的问题：
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Emanon"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Emanon</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 2024-02 – 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Emanon</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-        
+为什么拉普拉斯变换能成为控制论中一个经典的数学方法？
 
 
+如何从数学上、以及物理上理解拉普拉斯变换？
 
+我们先看第一个问题：
 
+为什么拉普拉斯变换能成为控制论中一个经典的数学方法？
 
+第一个问题是非常好回答的。系统论与控制论中涉及了大量的微分运算，在系统建模中，我们无法规避地需要求解大量低阶以及高阶的微分算子，这大大增加了系统分析的复杂性。因此，如果能实现一个简单的变换，将原本复杂的微分运算转化成我们最熟知的四则运算，那就帮大忙了。
+而我们所熟悉的傅里叶变换提供了这样一条捷径：$$ F(\omega) &#x3D; \int_{-\infin}^{\infin} f(t) \cdot e^{-jwt} \mathrm{d}t \tag{1} $$
+当 $ x(t) &#x3D; \frac{\mathrm{d}g(t)}{\mathrm{d}t} $ 时，由$(1)$可得：$$ \mathscr{F}{x(t)} &# ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/21/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-21T16:39:22.131Z" title="发表于 2024-02-22 00:39:22">2024-02-22</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
 
+More info: Writing
+Run server1$ hexo server
 
+More info: Server
+Generate static files1$ hexo generate
 
-      </div>
-    </footer>
-  </div>
+More info: Generating
+Deploy to remote sites1$ hexo deploy
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+More info: Deployment
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Emanon</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/21/Reglungstechnik/" title="无题">无题</a><time datetime="2024-02-21T22:16:50.744Z" title="发表于 2024-02-22 06:16:50">2024-02-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/21/hello-world/" title="Hello World">Hello World</a><time datetime="2024-02-21T16:39:22.131Z" title="发表于 2024-02-22 00:39:22">2024-02-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-02-21T23:03:10.104Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Emanon</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
