@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LTSpice study Note | Chenyan's Blog</title><meta name="author" content="Chenyan"><meta name="copyright" content="Chenyan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Introduction of LTSpice使用LTSpice的仿真过程可由下图表示： 12flowchart LR    绘制电路 --&gt; 转换成SPICE图表&#x2F;模型 --&gt; 仿真器进行仿真 --&gt; 显示结果  交互求解（仿真器进行仿真）：先假设电路节点电压 -&gt; 根据电路阻抗计算电流 -&gt; 用电流反推节点电压 -&gt; 如此反复直到收敛到容差范围内 ($Rel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LTSpice study Note">
+<meta property="og:url" content="https://cy-nigora.github.io/2024/10/27/LTSpice_study_note/index.html">
+<meta property="og:site_name" content="Chenyan&#39;s Blog">
+<meta property="og:description" content="Introduction of LTSpice使用LTSpice的仿真过程可由下图表示： 12flowchart LR    绘制电路 --&gt; 转换成SPICE图表&#x2F;模型 --&gt; 仿真器进行仿真 --&gt; 显示结果  交互求解（仿真器进行仿真）：先假设电路节点电压 -&gt; 根据电路阻抗计算电流 -&gt; 用电流反推节点电压 -&gt; 如此反复直到收敛到容差范围内 ($Rel">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png">
+<meta property="article:published_time" content="2024-10-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-28T21:53:27.044Z">
+<meta property="article:author" content="Chenyan">
+<meta property="article:tag" content="LTSpice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png"><link rel="shortcut icon" href="/theme_img/favicon.png"><link rel="canonical" href="https://cy-nigora.github.io/2024/10/27/LTSpice_study_note/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LTSpice study Note',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-29 05:53:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/09/29/CWZIoSGrvR7QB3p.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chenyan's Blog"><span class="site-name">Chenyan's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LTSpice study Note</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-27T16:00:00.000Z" title="发表于 2024-10-28 00:00:00">2024-10-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-28T21:53:27.044Z" title="更新于 2024-10-29 05:53:27">2024-10-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Simulation/">Simulation</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LTSpice study Note"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Introduction-of-LTSpice"><a href="#Introduction-of-LTSpice" class="headerlink" title="Introduction of LTSpice"></a>Introduction of LTSpice</h1><p>使用<strong>LTSpice</strong>的仿真过程可由下图表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    绘制电路 --&gt; 转换成SPICE图表/模型 --&gt; 仿真器进行仿真 --&gt; 显示结果</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>交互求解</strong>（仿真器进行仿真）：先假设电路节点电压 -&gt; 根据电路阻抗计算电流 -&gt; 用电流反推节点电压 -&gt; 如此反复直到收敛到容差范围内 ($Reltol, Vntol, Abtol,$ etc)。</p>
+</blockquote>
+<p><strong>SPICE模型</strong>具有以下特征：</p>
+<ul>
+<li>SPICE模型并非基于三极管或MOS管的模型，所以与真实芯片是不同的。</li>
+<li>SPICE模型是 <em>行为级</em> 的模型，根据真实芯片的各项指标进行建模。</li>
+<li>仿真结果的准确度取决于仿真模型是否与真实芯片完全一致。</li>
+</ul>
+<p>哪些放大器参数会在SPICE模型中进行建模呢？</p>
+<table>
+  <tr>
+    <td bgcolor="#ececff">应该建模的参数</td>
+    <td bgcolor="#ececff">可能建模的参数</td>
+    <td bgcolor="#ececff">没有建模的参数</td>
+  </tr>
+  <tr>
+    <td>开环增益</td>
+    <td>电源抑制比 vs. 频率</td>
+    <td>温度drift相关参数</td>
+  </tr>
+  <tr>
+    <td>增益带宽积</td>
+    <td>共模抑制比 vs. 频率</td>
+    <td>器件与器件的差异</td>
+  </tr>
+  <tr>
+    <td>静态电流</td>
+    <td>关断功能</td>
+    <td>失真</td>
+  </tr>
+  <tr>
+    <td>失调电压</td>
+    <td>过载恢复</td>
+    <td>最差情况误差</td>
+  </tr>
+  <tr>
+    <td>偏置电流</td>
+    <td>1/f噪声</td>
+    <td>相位翻转</td>
+  </tr>
+  <tr>
+    <td>失调电流</td>
+    <td>电流噪声</td>
+    <td>过驱性能</td>
+  </tr>
+  <tr>
+    <td>宽带电压噪声</td>
+    <td>负载电流</td>
+    <td>其他没有出现在芯片资料中的指标</td>
+  </tr>
+    <tr>
+    <td></td>
+    <td>压摆率</td>
+    <td></td>
+  </tr>
+</table>
+
+<p><strong>LTSPICE</strong>的常用快捷键：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">R - Resistor</span><br><span class="line">C - Capacitor</span><br><span class="line">L - Inductor</span><br><span class="line">D - Diode</span><br><span class="line">G - Ground</span><br><span class="line">V - Voltage</span><br><span class="line">S - Spice Directive</span><br><span class="line">T - Text</span><br><span class="line">F2 - Component</span><br><span class="line">F3 - Draw wire</span><br><span class="line">F4 - Label Net/Name Net</span><br><span class="line">F5 - cut/delete</span><br><span class="line">F6 - copy/duplicate</span><br><span class="line">F7 - move (unselected wires remain)</span><br><span class="line">F8 - drag (connected wires adjust)</span><br><span class="line">ESC - exit current mode</span><br><span class="line">F9 |  F9 or CMD + Z - Undo</span><br><span class="line">Ctrl + R |  CMD + R - Rotate</span><br><span class="line">Ctrl + E |  CMD + E - Mirror</span><br><span class="line">Ctrl + Z |  No Equivalent - Zoom area/zoom in</span><br><span class="line">Ctrl + B |  No Equivalent - Zoom out</span><br><span class="line">SPACE zoom to fit / fit to view / auto focus</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="Functions-of-LTSpice"><a href="#Functions-of-LTSpice" class="headerlink" title="Functions of LTSpice"></a>Functions of LTSpice</h1><h2 id="瞬态分析（-tran）"><a href="#瞬态分析（-tran）" class="headerlink" title="瞬态分析（.tran）"></a>瞬态分析（.tran）</h2><p>在<code>RUN</code>后，通过移动并在原理图中点击鼠标(探头)在示波器中增加新的信号。</p>
+<p><code>ctrl+L</code>可打开<code>log</code>菜单，查看一些控制台输出。一个常见的指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.options plotwinsize=0 numdgt=15</span><br></pre></td></tr></table></figure>
+<p>可以增加示波器中的采样点数（而不被压缩）。</p>
+<p>按住<code>alt</code>点击器件可测量其瞬态功率（电压电流的瞬时积）。按住<code>ctrl</code>可以移动图。</p>
+<hr>
+<h2 id="交流分析（-ac）"><a href="#交流分析（-ac）" class="headerlink" title="交流分析（.ac）"></a>交流分析（.ac）</h2><p>不同于瞬态分析(时域分析)，交流分析是基于频域的分析工具。</p>
+<p>操作顺序：</p>
+<ol>
+<li>编辑<code>.trans</code>工具，配置<code>AC Analyse</code>中的参数。</li>
+<li>编辑Source，提供一个<code>Samll Signal AC Analyse</code>的小信号，一般给 1V。</li>
+<li><code>RUN</code>, 用探头点击输出侧。</li>
+</ol>
+<p>如何使用<strong>交流分析</strong> 分析差分信号的频域特性：</p>
+<ol>
+<li>在空白的示波窗口中右键选中<code>Add Traces</code>。</li>
+<li>先选中<code>V(out+)</code>，将其改为<code>V(out+, out-)</code>，即可实现。</li>
+</ol>
+<p>若想比较差分输出与输入的关系，可在上面的基础上，加<code>/</code>后单击输入信号：<code>V(out+, out-)/I(1)</code>。</p>
+<hr>
+<h2 id="直流参数扫描（-dc）"><a href="#直流参数扫描（-dc）" class="headerlink" title="直流参数扫描（.dc）"></a>直流参数扫描（.dc）</h2><p>功能介绍：</p>
+<ul>
+<li>变化信号源的直流值，进行支流分析。</li>
+<li>用于仿真放大器的输入输出关系图，或是三极管的特性曲线。</li>
+</ul>
+<p>编辑<code>.dc</code>对应参数即可，可以同时测试三个源。</p>
+<hr>
+<h2 id="噪声分析（-noise）"><a href="#噪声分析（-noise）" class="headerlink" title="噪声分析（.noise）"></a>噪声分析（.noise）</h2><p>在频域进行的噪声分析，横轴是频率，纵轴是噪声密度。快捷键<code>ctrl+V(out)</code>(点击示波器上方的lable)显示均方根噪声。</p>
+<hr>
+<h2 id="传递函数计算（-tf）"><a href="#传递函数计算（-tf）" class="headerlink" title="传递函数计算（.tf）"></a>传递函数计算（.tf）</h2><ul>
+<li>计算小信号直流传递函数</li>
+</ul>
+<p>传递函数的一个指令实例：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.tf V(out) V3</span><br></pre></td></tr></table></figure><br>其中，<code>V(out)</code>对应输出，<code>V3</code>对应信号源。则可仿真出对应的等效传递函数。<br>按照以下图例运行：</p>
+<p align="center">    
+<img src="tf_test.png" width="90%">
+</p>
+
+<p>可得输出log为：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">       --- Transfer Function ---</span><br><span class="line"></span><br><span class="line">Transfer_function:	 -0.99998	 transfer</span><br><span class="line">v4#Input_impedance:	 1.06031e+06	 impedance</span><br><span class="line">output_impedance_at_V(out):	 0.00259024	 impedance</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>当然，此处的传递函数主要意为：<strong>放大电路的放大比</strong>。</p>
+<hr>
+<h2 id="直流工作点计算（-op）"><a href="#直流工作点计算（-op）" class="headerlink" title="直流工作点计算（.op）"></a>直流工作点计算（.op）</h2><ul>
+<li><code>.op</code>可以单独操作，但一般不这样用。</li>
+<li>在<code>.tran/.ac/.dc/.noice</code>分析中，一般采用Newton-Raphson（潮流计算所使用的牛润迭代法）来计算直流工作点，失败后采用其他方法计算。</li>
+</ul>
+<p>直流工作点的主要意义在于确定其他分析方法的<strong>初始值与工作点</strong>。</p>
+<p>按照以下图例测试：</p>
+<p align="center">    
+<img src="op_test.png" width="90%">
+</p>
+
+<p>运算结果：</p>
+<h2 id><a href="#" class="headerlink" title></a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">       --- Operating Point ---</span><br><span class="line"></span><br><span class="line">V(+v):	 5	 voltage</span><br><span class="line">V(-v):	 -5	 voltage</span><br><span class="line">V(n001):	 50	 voltage</span><br><span class="line">V(n002):	 49.491	 voltage</span><br><span class="line">V(n003):	 49.491	 voltage</span><br><span class="line">V(n004):	 50	 voltage</span><br><span class="line">V(out):	 0.00319077	 voltage</span><br><span class="line">I(R1):	 -0.000508961	 device_current</span><br><span class="line">I(R2):	 -0.000508982	 device_current</span><br><span class="line">I(R3):	 -0.00049491	 device_current</span><br><span class="line">I(R4):	 -0.000494879	 device_current</span><br><span class="line">I(V1):	 -3.19565e-05	 device_current</span><br><span class="line">I(V2):	 0.00055499	 device_current</span><br><span class="line">I(Vcom):	 -0.00101794	 device_current</span><br><span class="line">I(Vin):	 0.000508982	 device_current</span><br><span class="line">Ix(u1:1):	 1.40719e-05	 subckt_current</span><br><span class="line">Ix(u1:2):	 1.40829e-05	 subckt_current</span><br><span class="line">Ix(u1:3):	 3.19565e-05	 subckt_current</span><br><span class="line">Ix(u1:4):	 -0.00055499	 subckt_current</span><br><span class="line">Ix(u1:5):	 0.000494879	 subckt_current</span><br></pre></td></tr></table></figure></h2><h1 id="Non-Convergence"><a href="#Non-Convergence" class="headerlink" title="Non-Convergence"></a>Non-Convergence</h1><p>仿真原理：<strong>交互求解</strong>。先假设电路节点电压→根据电路阻抗计算电流→用电流反推节点电压→如此反复直到所有的节点电压稳定到软件设定的特定容差范围内($Reltol, Vntol, Abtol,$ etc)。</p>
+<p>两种仿真不收敛的原因：</p>
+<ul>
+<li>如果节点电压不能稳定下来，直流工作点分析会报错，<code>&quot;No convergence inDCanalysis&quot;/“Singular Matrix&quot;/“Gmin/Source Stepping Failed”</code> .这时AC分析或瞬态分析都会停下来，因为这两种分析的前提是能找到电路的稳定的直流工作点。</li>
+<li>瞬态分析时，上述的交互求解过程在每个时间步进(timestep)都需要稳定下来如果某个timestep没有稳定，软件会减少timestep重新求解，因为减少timestep导致整体分析时间超时，这时软件会报错<code>“Time step too small”</code>,仿真停止。</li>
+</ul>
+<p>通用解决方法：</p>
+<ul>
+<li>仔细检查电路:并非所有的收敛问题都是仿真软件的问题，仔细检查电路连接，或将电路分成几个部分，查找是否是某一部分电路的问题。</li>
+<li>将Gmin从<code>1e-12</code>改大，但不要超过<code>1e-8</code>。</li>
+<li>采用Gear Integration方法(同时可以减小Reltol)。</li>
+<li>将Abstol改大，但不要超过“<code>1u</code>”。</li>
+<li>使用UIC(如果是因为无法求解DC工作点，那么省略求解DC工作点，使用用户自己定义的初始条件.IC)，慎用，初始条件设置不好，仍然会不收敛。</li>
+<li>将Reltol(相对误差容差)改大，这样仿真速度会提高。</li>
+<li>在每个节点增加寄生电容cshunt，添加指令:“<code>.options cshunt=1e-15</code>”。</li>
+</ul>
+<p>或者在<code>Control Panel</code>中的<code>SPICE</code>里，恢复缺省值后，逐项尝试：</p>
+<table>
+  <tr>
+    <td bgcolor="#ececff">After reset to default</td>
+    <td bgcolor="#ececff">Set Value</td>
+  </tr>
+  <tr>
+    <td>Gmin</td>
+    <td>1e-10</td>
+  </tr>
+  <tr>
+    <td>Integration Method</td>
+    <td>Gear</td>
+  </tr>
+  <tr>
+    <td>Gmin, Abstol</td>
+    <td>1e-10, 1e-10</td>
+  </tr>
+  <tr>
+    <td>Reltol</td>
+    <td>0.005</td>
+  </tr>
+  <tr>
+    <td>Solver</td>
+    <td>Alternate</td>
+  </tr>
+  <tr>
+    <td>add command</td>
+    <td>.options cshunt=1e-15</td>
+  </tr>
+  <tr>
+    <td>Gmin, Abstol, Reltol</td>
+    <td>1e-10, 1e-10, 0.003</td>
+</tr></table>
+
+<hr>
+<h1 id="导入外部模型"><a href="#导入外部模型" class="headerlink" title="导入外部模型"></a>导入外部模型</h1><p>（注意存放路径为英文路径）在下载文件中用LTSpice打开<code>.lib</code>文件，右键选中器件名称点击<code>create symbol</code>即可。右键端口名可修改。</p>
+<p>注意需要保存到软件library对应的根目录下，下次才能直接从库里索引到导入的文件。若要修改对应的导入文件的拓扑，可以直接在对应<code>.asy</code>文件中修改，画出边框后拖拽原先的引脚到指定位置，再删除原先的边框即可。</p>
+<p>若未成功载入模型，可先使用指令<code>.lib</code>再在其中搜索载入对应模型的对应路径即可。</p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>导航到bilibili链接： <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14A411P7ku?spm_id_from=333.788.videopod.episodes&amp;vd_source=8beb7a41a3a04b6db0dc2dba13405111">LTspice官方教程 | 运放电路仿真实战系列</a>。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://cy-nigora.github.io">Chenyan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cy-nigora.github.io/2024/10/27/LTSpice_study_note/">https://cy-nigora.github.io/2024/10/27/LTSpice_study_note/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cy-nigora.github.io" target="_blank">Chenyan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LTSpice/">LTSpice</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/10/18/Audio_amplifier/" title="Comparasion of different Audio Amplifiers"><img class="cover" src="https://s2.loli.net/2024/10/20/kTUyLAWsHibPOCE.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Comparasion of different Audio Amplifiers</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chenyan</div><div class="author-info__description">在德攻城狮</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CY-Nigora"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/CY-Nigora" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:jnigora732@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction-of-LTSpice"><span class="toc-number">1.</span> <span class="toc-text">Introduction of LTSpice</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Functions-of-LTSpice"><span class="toc-number">2.</span> <span class="toc-text">Functions of LTSpice</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9E%AC%E6%80%81%E5%88%86%E6%9E%90%EF%BC%88-tran%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">瞬态分析（.tran）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%B5%81%E5%88%86%E6%9E%90%EF%BC%88-ac%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">交流分析（.ac）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%B5%81%E5%8F%82%E6%95%B0%E6%89%AB%E6%8F%8F%EF%BC%88-dc%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">直流参数扫描（.dc）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%99%AA%E5%A3%B0%E5%88%86%E6%9E%90%EF%BC%88-noise%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">噪声分析（.noise）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%EF%BC%88-tf%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">传递函数计算（.tf）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%B5%81%E5%B7%A5%E4%BD%9C%E7%82%B9%E8%AE%A1%E7%AE%97%EF%BC%88-op%EF%BC%89"><span class="toc-number">2.6.</span> <span class="toc-text">直流工作点计算（.op）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.7.</span> <span class="toc-text">12345678910111213141516171819202122       --- Operating Point ---V(+v):	 5	 voltageV(-v):	 -5	 voltageV(n001):	 50	 voltageV(n002):	 49.491	 voltageV(n003):	 49.491	 voltageV(n004):	 50	 voltageV(out):	 0.00319077	 voltageI(R1):	 -0.000508961	 device_currentI(R2):	 -0.000508982	 device_currentI(R3):	 -0.00049491	 device_currentI(R4):	 -0.000494879	 device_currentI(V1):	 -3.19565e-05	 device_currentI(V2):	 0.00055499	 device_currentI(Vcom):	 -0.00101794	 device_currentI(Vin):	 0.000508982	 device_currentIx(u1:1):	 1.40719e-05	 subckt_currentIx(u1:2):	 1.40829e-05	 subckt_currentIx(u1:3):	 3.19565e-05	 subckt_currentIx(u1:4):	 -0.00055499	 subckt_currentIx(u1:5):	 0.000494879	 subckt_current</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Non-Convergence"><span class="toc-number">3.</span> <span class="toc-text">Non-Convergence</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E5%A4%96%E9%83%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">导入外部模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/27/LTSpice_study_note/" title="LTSpice study Note">LTSpice study Note</a><time datetime="2024-10-27T16:00:00.000Z" title="发表于 2024-10-28 00:00:00">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/18/Audio_amplifier/" title="Comparasion of different Audio Amplifiers"><img src="https://s2.loli.net/2024/10/20/kTUyLAWsHibPOCE.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Comparasion of different Audio Amplifiers"/></a><div class="content"><a class="title" href="/2024/10/18/Audio_amplifier/" title="Comparasion of different Audio Amplifiers">Comparasion of different Audio Amplifiers</a><time datetime="2024-10-18T16:00:00.000Z" title="发表于 2024-10-19 00:00:00">2024-10-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/09/Debug%20towards%20process/" title="Debug towards process">Debug towards process</a><time datetime="2024-10-09T16:00:00.000Z" title="发表于 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/01/PyQt-learning/" title="PyQt 学习笔记"><img src="https://s2.loli.net/2024/10/03/l3dnCFUHwGBLP58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PyQt 学习笔记"/></a><div class="content"><a class="title" href="/2024/10/01/PyQt-learning/" title="PyQt 学习笔记">PyQt 学习笔记</a><time datetime="2024-10-01T16:00:00.000Z" title="发表于 2024-10-02 00:00:00">2024-10-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/18/Jenkins-Matlab%20Workfolw/" title="From Jenkins to Matlab/Simulilnk"><img src="https://s2.loli.net/2024/09/29/YiEpUkbgxP8HhZw.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="From Jenkins to Matlab/Simulilnk"/></a><div class="content"><a class="title" href="/2024/07/18/Jenkins-Matlab%20Workfolw/" title="From Jenkins to Matlab/Simulilnk">From Jenkins to Matlab/Simulilnk</a><time datetime="2024-07-18T16:00:00.000Z" title="发表于 2024-07-19 00:00:00">2024-07-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Chenyan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hallo, willkommen zu meinem BLOG!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.3" zIndex="-2" mobile="true" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
