@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png">
 <meta property="article:published_time" content="2024-10-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-11-04T10:40:21.771Z">
+<meta property="article:modified_time" content="2024-11-04T10:47:36.797Z">
 <meta property="article:author" content="Chenyan">
 <meta property="article:tag" content="GaN">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-11-04 18:40:21'
+  postUpdate: '2024-11-04 18:47:36'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -153,7 +153,7 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/09/29/PMjS1kBHrfJ2Xw7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chenyan's Blog"><span class="site-name">Chenyan's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Note of designing and analysing of GaN driver circuit</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-30T16:00:00.000Z" title="发表于 2024-10-31 00:00:00">2024-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-04T10:40:21.771Z" title="更新于 2024-11-04 18:40:21">2024-11-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Forschungsarbeit/">Forschungsarbeit</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">696</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Note of designing and analysing of GaN driver circuit"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Property-of-GaN-power-devices"><a href="#Property-of-GaN-power-devices" class="headerlink" title="Property of GaN power devices"></a>Property of GaN power devices</h1><p>Compared with other classic or modern full-controlled switches, whatever Si-based or HEMT structure of GaN switch, <u>it doesn’t contain an intrinsic body diode</u>, which makes the current freewheeling harder and causes a steep voltage gradient. Lack of an intrinsic body diode could be a Double-edged sword:</p>
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/09/29/PMjS1kBHrfJ2Xw7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chenyan's Blog"><span class="site-name">Chenyan's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Note of designing and analysing of GaN driver circuit</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-30T16:00:00.000Z" title="发表于 2024-10-31 00:00:00">2024-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-04T10:47:36.797Z" title="更新于 2024-11-04 18:47:36">2024-11-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Forschungsarbeit/">Forschungsarbeit</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">696</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Note of designing and analysing of GaN driver circuit"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Property-of-GaN-power-devices"><a href="#Property-of-GaN-power-devices" class="headerlink" title="Property of GaN power devices"></a>Property of GaN power devices</h1><p>Compared with other classic or modern full-controlled switches, whatever Si-based or HEMT structure of GaN switch, <u>it doesn’t contain an intrinsic body diode</u>, which makes the current freewheeling harder and causes a steep voltage gradient. Lack of an intrinsic body diode could be a Double-edged sword:</p>
 <table>
   <tr>
     <td bgcolor="#ececff">Advantage</td>
@@ -167,21 +167,23 @@
 
 <p>On the other hand, GaN based switch has a <u>unrobust gate structure</u>, especially compared with a MOS gate, exhibits a relatively lower threshold voltage and lower limit of the maximum gate voltage. With higher frequency switching and over-voltage by ringing effect from parasitic elements, leading to a <u>false turn-on issue</u>.</p>
 <hr>
+<blockquote>
 <p>So here is a summery of the property of GaN driver:</p>
 <ol>
 <li>can output a huge current with small parasitic resistor to realize a fast charging -&gt; fast switching.</li>
 <li>special activation range requires a special and stable voltage supply.</li>
 <li>need a additional configuration for freewheeling.</li>
 </ol>
+</blockquote>
 <hr>
 <h1 id="Using-DPT-to-measure-the-chacterastic-of-GaN-switches"><a href="#Using-DPT-to-measure-the-chacterastic-of-GaN-switches" class="headerlink" title="Using DPT to measure the chacterastic of GaN switches"></a>Using DPT to measure the chacterastic of GaN switches</h1><p>DPT(double-pulse-test) could be a useful way to test the switching loss of a power switch. The basic idea of it is to generate two pulses:</p>
 <ul>
 <li>The frist pulse: broad pulse width, used to create a steady current through inductor $L$.</li>
 <li>The second pulse: narrow pulse width, used to test the switching loss based on the current created during the first pulse.</li>
 </ul>
-<p>The shematic is：</p>
+<p>The shematic is:</p>
 <p align="center">    
-<img src="GetImage.png" alt="ss" width="70%/">
+<img src="GetImage.png" alt="GaN_driver" width="70%/">
 </p>    
 
 <p>Some more details of this shematic:</p>
@@ -191,7 +193,7 @@
 </ul>
 <h2 id="Shortcoming-Of-DPT"><a href="#Shortcoming-Of-DPT" class="headerlink" title="Shortcoming Of DPT"></a>Shortcoming Of DPT</h2><p>A significant problem of DPT is the reverse recovery effect of the diode. </p>
 <p align="center">    
-<img src="img_diode_01_e.jpg" alt="ss" width="70%/">
+<img src="img_diode_01_e.jpg" alt="reverse recovery" width="70%/">
 </p>   
 
 <p>During the on-time, the concentration of carrier of both hole and electron at the interface of PN junction is relatively high. After switching it off with a reverse current direction, it needs time to create a reverse junction electrical field, it leads to a reverse current loading which consumes more switching power.</p>
@@ -207,7 +209,7 @@
 <h1 id="Ways-to-contruct-a-GaN-driver-circuit"><a href="#Ways-to-contruct-a-GaN-driver-circuit" class="headerlink" title="Ways to contruct a GaN driver circuit"></a>Ways to contruct a GaN driver circuit</h1><p>According to the referenced thesis, there’re two useful topology of the GaN driver:</p>
 <p>Conventional design of <strong>Methode 1</strong>:</p>
 <p align="center">    
-<img src="conventional_methode1.png" alt="ss" width="60%/">
+<img src="conventional_methode1.png" alt="conventional_methode1" width="60%/">
 </p>   
 
 <p>However shortcommings:</p>
@@ -216,7 +218,7 @@
 </ul>
 <p>Upgrade of <strong>Methode 1</strong>:</p>
 <p align="center">    
-<img src="modern_mothod1.png" alt="ss" width="60%/">
+<img src="modern_mothod1.png" alt="modern_mothod1" width="60%/">
 </p>   
 
 <p>With a charge pump the $V_{DD}$ keep invariant, but $V_{o,max}$ will not be influenced by threshold voltage of $E3$.</p>
@@ -227,7 +229,7 @@
 </ul>
 <p>Upgrade of <strong>Methode 2</strong>:</p>
 <p align="center">    
-<img src="modern_mothod2.png" alt="ss" width="90%/">
+<img src="modern_mothod2.png" alt="modern_mothod2" width="90%/">
 </p>   
 
 <p>For improvement:</p>
