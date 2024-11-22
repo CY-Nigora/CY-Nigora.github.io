@@ -1,0 +1,580 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Device Model of class D Audio amplifier | Chenyan's Blog</title><meta name="author" content="Chenyan"><meta name="copyright" content="Chenyan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Whole Structure of a digital (class-D) Audio amplifierAccording to recent discussions, the basic structure of the whole class-d audio amplifier should be designed as:             It clearifies, that">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Device Model of class D Audio amplifier">
+<meta property="og:url" content="https://cy-nigora.github.io/2024/11/19/Device_Model_Selection/index.html">
+<meta property="og:site_name" content="Chenyan&#39;s Blog">
+<meta property="og:description" content="Whole Structure of a digital (class-D) Audio amplifierAccording to recent discussions, the basic structure of the whole class-d audio amplifier should be designed as:             It clearifies, that">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png">
+<meta property="article:published_time" content="2024-11-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-22T20:27:10.322Z">
+<meta property="article:author" content="Chenyan">
+<meta property="article:tag" content="Audio Amplifier">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png"><link rel="shortcut icon" href="/theme_img/favicon.png"><link rel="canonical" href="https://cy-nigora.github.io/2024/11/19/Device_Model_Selection/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Device Model of class D Audio amplifier',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-23 04:27:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/09/29/PMjS1kBHrfJ2Xw7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chenyan's Blog"><span class="site-name">Chenyan's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Device Model of class D Audio amplifier</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-19T16:00:00.000Z" title="发表于 2024-11-20 00:00:00">2024-11-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-22T20:27:10.322Z" title="更新于 2024-11-23 04:27:10">2024-11-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Forschungsarbeit/">Forschungsarbeit</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Device Model of class D Audio amplifier"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><!-- # Device Model of class D Audio amplifier 
+
+--- -->
+<h1 id="Whole-Structure-of-a-digital-class-D-Audio-amplifier"><a href="#Whole-Structure-of-a-digital-class-D-Audio-amplifier" class="headerlink" title="Whole Structure of a digital (class-D) Audio amplifier"></a>Whole Structure of a digital (class-D) Audio amplifier</h1><p>According to recent discussions, the basic structure of the whole class-d audio amplifier should be designed as:</p>
+<p align="center">    
+<img src="structure of digital audio amplifier.png" alt="structure of digital audio amplifier" width="100%/">
+</p>    
+
+<p>It clearifies, that the whole system consists of 4 types of main elements:</p>
+<ul>
+<li><mark class="hl-label pink">MicroControllerpink</mark> : STM series chip will be used.</li>
+<li><mark class="hl-label devices">Peripheral</mark> : included input/output interface.</li>
+<li><mark class="hl-label purple">Block</mark> : each block coresponds a concrete function, for example OPAMP, DC-DC converter.</li>
+<li><mark class="hl-label green">Sub-block</mark> : each sub-block is also a block with lower-level, intergrated in each block.</li>
+</ul>
+<p>Furthermore, the whole project can be divided into 2 boards:</p>
+<p align="center">    
+<img src="board division.png" alt="board division" width="70%/">
+</p> 
+
+<p>The analyse and design of each main element will be listed following.</p>
+<hr>
+<h1 id="Analyse-And-Design-Of-Each-Main-Element"><a href="#Analyse-And-Design-Of-Each-Main-Element" class="headerlink" title="Analyse And Design Of Each Main Element"></a>Analyse And Design Of Each Main Element</h1><p>According to the example of <code>Evaluation Board EPC9192KIT</code> we can in first stage easily construct some basic ideas of each element.</p>
+<h2 id="MicroController"><a href="#MicroController" class="headerlink" title="MicroController"></a>MicroController</h2><p>In this project, <code>STM32 Nucleo G431KB</code> would be taken into consideration as the μC main board. A Picture and a brief source introduction is listed following.</p>
+<p align="center">    
+<img src="stm.png" alt="cable" width="50%/">
+</p> 
+
+<table>
+  <tr>
+    <td bgcolor="#ececff">Block</td>
+    <td bgcolor="#ececff">Feature</td>
+  </tr>
+  <tr>
+    <td>Power Supply</td>
+    <td>1. A host PC connected to CN1 through a USB cable (default setting). <br> 2. An external 5 V USB charger (5V_USB_CHGR) connected to CN1. <br> 3. An external 7 V - 12 V (VIN) power supply connected to CN3 pin 1. <br> 4. An external 3.3 V power supply (3V3) connected to CN3 pin 14. <br> 5. An external 5 V power supply (5V) connected to CN3 pin 4. </td>
+  </tr>
+  <tr>
+    <td>ADC</td>
+    <td>includes two 12-bit resolution ADC (up to 23 channels), with given internal reference voltage: 2.048V, 2.5V, 2.9V. For input voltage beyond this range, a external refernce voltage port Vref+ is available.</td>
+  </tr>
+  <tr>
+    <td>SPI</td>
+    <td>Three SPI interfaces allow communication up to 75 Mbits/s in master and up to 41 Mbits/s in slave,  The 3-bit prescaler gives 8 master mode frequencies and the frame size is configurable from 4 bits to 16 bits. </td>
+  </tr>
+    <tr>
+    <td>PWM Modulator</td>
+    <td>Two 16-bit PWM timers dedicated to motor control,''Advanced motor control timer (TIM1, TIM8)'' is available for 4 groups of complementary outputs. Supporting both half and full bridge.</td>
+  </tr>
+</table>
+
+<h2 id="Peripheral-devices-Model-Selection"><a href="#Peripheral-devices-Model-Selection" class="headerlink" title="Peripheral devices - Model Selection"></a>Peripheral devices - Model Selection</h2><h3 id="Input-Stage-3-5mm-AUX-CABLE"><a href="#Input-Stage-3-5mm-AUX-CABLE" class="headerlink" title="Input Stage - 3.5mm AUX CABLE"></a>Input Stage - 3.5mm AUX CABLE</h3><p>Refering to the <code>Evaluation Board EPC9192KIT</code>, also considering the quality of audio signal, the input stage should be designed as a <code>3.5mm AUX single channel -&gt; XLR</code>. And behind that, connectting an additional R-C filter with cut-off frequency at 500kHz. </p>
+<table><tr>
+<td><img src="cable.jpg" border="0" style="height:200px;"></td>
+<td><img src="3.5toXLR.jpg" border="0" style="height:200px;"></td>
+</tr></table>
+
+<p>The details of both interface are listed as following:</p>
+<table>
+  <tr>
+    <td bgcolor="#ececff">Interface</td>
+    <td bgcolor="#ececff">Terminal</td>
+    <td bgcolor="#ececff">Ports</td>
+    <td bgcolor="#ececff">Feature</td>
+  </tr>
+  <tr>
+    <td>3.5mm AUX (single channel)</td>
+    <td>Audio Source</td>
+    <td>GND, Signal</td>
+    <td>&plusmn 1.5
+    V(MAX), normally 0.1V-0.8V.</td>
+  </tr>
+  <tr>
+    <td>XLR (Balanced Input)</td>
+    <td>Main Board</td>
+    <td>GND, Positive (Hot), Negative (Cold)</td>
+    <td>Based on Source</td>
+  </tr>
+</table>
+
+<p>But the drawback of this cable is, although the XLR belongs to the balanced cable, limitted by the input of 3.5mm aux, it was still unbalanced.</p>
+<p>Since the XLR here doesn’t show its own advantages, an alternative way is to use <code>3.5mm AUX -&gt; 3.5mm AUX</code>.</p>
+<p align="center">    
+<img src="aux2aux.jpg" alt="cable" width="40%/">
+</p> 
+
+<p>According to the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Line_level">introduction of line-level in Wikipedia</a>, common output of consummer audio product should be -10dbV, aginst 0dbV as reference voltage with 1.414V peak amplitude. However, here we refer to the max. output voltage of $\plusmn 2V$ as the input range of audio signal.</p>
+<h3 id="Output-Stage-Speaker"><a href="#Output-Stage-Speaker" class="headerlink" title="Output Stage - Speaker"></a>Output Stage - Speaker</h3><p>This part of content will be discussted later. (110Hz - 5KHz, around 4 $\Omega$ as impedance) -&gt; midrange speaker. But voltage below 48V (normally). <strong>Firstly fixed voltage 48V.</strong></p>
+<p>And the filter could be a Frequenzweichen (Audio crossover). Audio crossovers are a type of electronic filter circuitry that splits an audio signal into two or more frequency ranges, so that the signals can be sent to loudspeaker drivers that are designed to operate within different frequency ranges.</p>
+<h2 id="Model-Selection"><a href="#Model-Selection" class="headerlink" title="- Model Selection"></a>- Model Selection</h2><h3 id="OPAMP-for-3-5mm-AUX"><a href="#OPAMP-for-3-5mm-AUX" class="headerlink" title="OPAMP for 3.5mm AUX"></a>OPAMP for 3.5mm AUX</h3><p>Since the input range is $\pm 2V$, a DC bias is here necessary for the implement of ADC. <code>OPA1656</code> is here available. It offers low offset and long-term stability by means of a lownoise, chopperless, bipolar‑input‑transistor amplifier. </p>
+<p>The parameter of it is:</p>
+<table>
+  <tr>
+    <td bgcolor="#ececff">Specification</td>
+    <td bgcolor="#ececff">Details</td>
+  </tr>
+  <tr>
+    <td>Ultra-low noise</td>
+    <td>
+      Voltage noise: 2.9 nV/√Hz at 10 kHz<br>
+      Current noise: 6 fA/√Hz at 1 kHz
+    </td>
+  </tr>
+  <tr>
+    <td>Low distortion</td>
+    <td>
+      0.000029% (-131 dB) at 1 kHz<br>
+      0.000035% (-129 dB) at 20 kHz
+    </td>
+  </tr>
+  <tr>
+    <td>High open-loop gain</td>
+    <td>150 dB</td>
+  </tr>
+  <tr>
+    <td>High output current</td>
+    <td>100 mA</td>
+  </tr>
+  <tr>
+    <td>Low input bias current</td>
+    <td>10 pA</td>
+  </tr>
+  <tr>
+    <td>Slew rate</td>
+    <td>24 V/μs</td>
+  </tr>
+  <tr>
+    <td>Gain bandwidth product</td>
+    <td>53 MHz</td>
+  </tr>
+  <tr>
+    <td>Rail-to-rail output</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Wide supply range</td>
+    <td>±2.25 V to ±18 V or 4.5 V to 36 V</td>
+  </tr>
+  <tr>
+    <td>Quiescent current</td>
+    <td>3.9 mA per channel</td>
+  </tr>
+</table>
+
+<p>The configuration is:</p>
+<p align="center">    
+<img src="opamp2.png" alt="opamp2" width="60%/">
+</p> 
+
+<p>Here, the output is equal to:</p>
+<script type="math/tex; mode=display">V_{out} = \frac{(V_{in} + V_{bias})(R_2 + R_3))}{3R_2}</script><p>In case that the offset $V_{bias} = 3.3V$, which is provided by LDO <code>LP5900</code> from TI connecting to the 5.5V USB Power Supply.. In order to let $V_{out} \in [0V, 2.9V] $, which corresponds to the maximum internal reference volatage of ADC.</p>
+<p>Here a available solution is:</p>
+<script type="math/tex; mode=display">R = R_2 = 10 \cdot R_3</script><p>So that:</p>
+<script type="math/tex; mode=display">V_{out} = (V_{in} + V_{bias})\cdot \frac{11}{30}</script><script type="math/tex; mode=display">V_{out} \in (0.476,1.944)</script><p>Then another internal reference volatge of ADC with 2.048V is perfectly matched.</p>
+<p>Considering both circuits with only LP-filter or only LDO performs not so well either in low frequency or high frequency:</p>
+<table><tr>
+<td><img src="LP_simulation.png" border="0" style="height:200px;"></td>
+<td><img src="LDO_simulation.png" border="0" style="height:200px;"></td>
+</tr></table>
+
+<p>It could be better if we combine them together with the shematice below:</p>
+<p align="center">    
+<img src="input_stage_shematic.png" alt="opamp2" width="100%/">
+</p> 
+
+<p>Connecting with a low-pass filter with cutoff-frequency of 1kHz, plus a LDO <code>LP5900</code>. The performance is therefore much more improved in both low and high frequency:</p>
+<table>
+  <tr>
+    <td bgcolor="#ececff">max. Distortion in 110Hz</td>
+    <td bgcolor="#ececff">max. Distortion in 20kHz</td>
+  </tr>
+  <tr>
+    <td>0.01%</td>
+    <td>0.008%</td>
+  </tr>
+
+</table>
+
+<h3 id="Multi-level-BOOST-Converter"><a href="#Multi-level-BOOST-Converter" class="headerlink" title="Multi-level BOOST Converter"></a>Multi-level BOOST Converter</h3><p>A Multi-level BOOST Converter group can be here implemented to improve the performance of a stabil DC bus.</p>
+<p>Since we use a full-bridge circuit to realize the final design, one group of DC bus is enough.</p>
+<p>According to the document of <code>Evaluation Board EPC9192KIT</code>:</p>
+<script type="math/tex; mode=display">V_{DD} \in [42,85] \space , V_{SS} \in [-85,-42]</script><script type="math/tex; mode=display">V_{DD} = \lvert V_{SS} \rvert</script><p>The specific value of power supply depends on several factors:</p>
+<ul>
+<li>the running mode of audio amplifier: <strong>Class D</strong> or <strong>Class D+H</strong>.</li>
+<li>maximum voltage requirement of the speaker.</li>
+</ul>
+<p>But here we use <strong>fixed 48V as output with a 12V external voltage supply by phoenix contact</strong>, which is suitbale for most of the midrange speaker. For further improvement of class H, the output level could be adjustable.</p>
+<p>The average power for a midrange speaker should be 20W of RMS and 40W for maximum, with $Z = 8 ohms$, so the RMS and max. current for this could be:</p>
+<script type="math/tex; mode=display">I_{L,RMS} \approx 0.42A</script><script type="math/tex; mode=display">I_{L,max} \approx 0.9A</script><p>assuming that all power is supported by the DC bus.</p>
+<p>Several Loss indicators will be used to choose the best transistor firstly for the boost converter:</p>
+<ul>
+<li>Gate charge Loss</li>
+<li>Overlap Loss</li>
+<li>Conducting Loss</li>
+<li>FOM</li>
+</ul>
+<p>with following equations (for both transistors together) :</p>
+<script type="math/tex; mode=display">P_{g} = 2 \cdot Q_{g}\cdot V_{DD}\cdot f_s</script><script type="math/tex; mode=display">P_{overlap} = 2 \cdot I_L \cdot V_{DC} \cdot \frac{t_{sw}}{T_s}</script><script type="math/tex; mode=display">P_{conducting} = {I_L}^2 \cdot R_{DS,on}</script><script type="math/tex; mode=display">P_{total} = P_{g} + P_{overlap} + P_{conducting}</script><script type="math/tex; mode=display">FOM = R_{DS,on} \cdot Q_g</script><p>Cause here we have 2 same GaN transistors, which operate alternatively, so some losses can be easily multiplied by 2.</p>
+<p align="center">    
+<img src="transisitor_selection.png" alt="transisitor_selection" width="100%/">
+</p> 
+
+<p>According to the given sheet after caculating, <code>EPC2057</code> could be the best one with lowest loss and lowest FOM.</p>
+<p><strong>To choose a suitable Boost driver (without gate driver)</strong>, there are several ways to realize it:</p>
+<blockquote>
+<ul>
+<li><p>conventional method with feedback using resistive divider - <code>TPS4306x (TI)</code>:<br>The FB pin works as Error amplifier input and feedback pin for voltage regulation. Connect this pin to the center tap of a resistor divider to set the output voltage. However, not available for multilevel-boost or for real-time adjustment with $\mu$C.</p>
+<p align="center">    
+<img src="TPS43060.png" alt="resistor_divider" width="75%/">
+</p> 
+</li>
+<li><p>Method with feedback using $\mu$C - <code>LM251772</code>:<br>This type of Boost converter controller (external transistor) enables progammable dajust of duty circle with I2C Communication. The shortcomming of it is that we only uses the topology of Boost converter but it supports multiple topology with some other functionalities. The implement of this type of chip causes waste of resource.</p>
+</li>
+</ul>
+</blockquote>
+<p align="center">    
+<img src="LM251772.png" alt="resistor_divider" width="75%/">
+</p> 
+
+<blockquote>
+<p>Method with self-building Boost converter with feedback using $\mu$C:</p>
+</blockquote>
+<p>Modeling based on a stable state, using smale signal to construct the model.</p>
+<p><strong>To choose a suitable GaN switch</strong>, several conditions should be taken into consideration:</p>
+<ul>
+<li>consistent max $V_{DS}$ aginst $V_{DC}$.</li>
+<li>acceptable FOM and switching loss plus conducting loss.</li>
+<li>simple package structure.</li>
+</ul>
+<p>Afterwards, don’t forget to 10% safty redundancy for ripple and 10% design redundacy for Voltage spike.</p>
+<p>In this project, <code>EPC2306</code> is a matched solution with following feature:</p>
+<table>
+  <tr>
+    <td bgcolor="#ececff">VDS</td>
+    <td bgcolor="#ececff">max. Ron</td>
+    <td bgcolor="#ececff">FOM</td>
+  </tr>
+  <tr>
+    <td>100V</td>
+    <td>3.1mΩ</td>
+    <td>3.81e-11</td>
+  </tr>
+
+</table>
+
+
+<p><strong>To choose a suitable Inductor</strong>, according to the manual book of Texas Instrument <code>Basic Calculation of a Boost Converter&#39;s Power Stage (Rev. D)</code>, we can use the following equation to estimate:</p>
+<script type="math/tex; mode=display">\Delta I_L = (0.2\: to\: 0.4)\cdot I_{out(max)}\cdot \frac{V_{out}}{V_{in}}</script><script type="math/tex; mode=display">L = \frac{V_{in}\cdot (V_{out} - V_{in})}{\Delta I_L \cdot f_s \cdot V_{out}}</script><p>Assuming a middle coefficient 0.3 and $I_{out(max)} = 0.9A$, $L = 83.3 \mu H$.</p>
+<p><strong>To choose a Resistive Divider for feedback</strong>, according to the manual book of Texas Instrument <code>Basic Calculation of a Boost Converter&#39;s Power Stage (Rev. D)</code>, the current through the resistive divider shall be at least 100 times as big as the feedback bias current:</p>
+<script type="math/tex; mode=display">I_{R1/2} \geq 100 \cdot I_{FB}</script><p align="center">    
+<img src="resistor_divider.png" alt="resistor_divider" width="35%/">
+</p> 
+
+<p>This constrains is valid with a huge input impedanz of ADC.</p>
+<p><strong>To choose a Input Capacitor</strong>, according to the manual book of Texas Instrument <code>Basic Calculation of a Boost Converter&#39;s Power Stage (Rev. D)</code>, the minimum value for the input capacitor is normally given in the data sheet of driver/controller. This minimum value is necessary to stabilize the input voltage due to the peak current requirement of a switching power supply. The best practice is to use <strong>low equivalent series resistance (ESR) ceramic capacitors</strong>.</p>
+<p><strong>To choose a Output Capacitor</strong>, according to the manual book of Texas Instrument <code>Basic Calculation of a Boost Converter&#39;s Power Stage (Rev. D)</code>, <strong>low ESR capacitors</strong> is also a best solution. Since here we implement a feedback loop, a capacitor beyond the minimum value of data sheet’s requirement is enough. With external compensation, the following equations can be used to adjust the output capacitor values for a<br>desired output voltage ripple:</p>
+<script type="math/tex; mode=display">C_{out,min} = \frac{I_{out,max} \cdot D}{f_s \cdot \Delta V_{out}}</script><p>For <strong>communication</strong>, SPI can be taken into consideration. Compared to I2C or other types of serial communication, SPI is more suitable for communicating between different boards with high speed and low error-rate. Meanwhile simplier configuration and takes up less space compared with parallel communication.</p>
+<p>In some cases, an additional opamp for ADC is also necessary.</p>
+<h3 id="Bridge-based-Amplifier"><a href="#Bridge-based-Amplifier" class="headerlink" title="Bridge based Amplifier"></a>Bridge based Amplifier</h3><p>The selection and corresponding parameters will be listed below:</p>
+<ul>
+<li>GaN: <code>EPC2302</code>, working in 600kHz<table>
+<tr>
+  <td bgcolor="#ececff">V<sub>DS</sub></td>
+  <td bgcolor="#ececff">R<sub>DS(on)</sub></td>
+</tr>
+<tr>
+  <td>100 V</td>
+  <td>1.4 mΩ typical, 1.8 mΩ max</td>
+</tr>
+</table>
+
+</li>
+</ul>
+<p>Compared with <code>EPC2307</code>, which is used in the <code>Evaluation Board EPC9192KIT</code>: </p>
+<table>
+  <tr>
+    <td bgcolor="#ececff">V<sub>DS</sub></td>
+    <td bgcolor="#ececff">R<sub>DS(on)</sub></td>
+  </tr>
+  <tr>
+    <td>200 V</td>
+    <td>10mΩ</td>
+  </tr>
+</table>
+
+<p><code>EPC2302</code> is better with lower switching loss, however rely more on the design. It means, the voltage of DC bus should be lower designed to match its lower breakdown voltage.</p>
+<ul>
+<li><p>gate driver: LMG1205 (TI)</p>
+<table border="1" cellspacing="0" cellpadding="8">
+<tr>
+  <td bgcolor="#ececff">Power switch</td>
+  <td bgcolor="#ececff">Input supply voltage (min) (V)</td>
+  <td bgcolor="#ececff">Input supply voltage (max) (V)</td>
+  <td bgcolor="#ececff">Peak output current (A)</td>
+  <td bgcolor="#ececff">Operating temperature range (°C)</td>
+  <td bgcolor="#ececff">Undervoltage lockout (typ) (V)</td>
+  <td bgcolor="#ececff">Rating</td>
+  <td bgcolor="#ececff">Propagation delay time (µs)</td>
+  <td bgcolor="#ececff">Rise time (ns)</td>
+  <td bgcolor="#ececff">Fall time (ns)</td>
+  <td bgcolor="#ececff">Iq (mA)</td>
+  <td bgcolor="#ececff">Input threshold</td>
+  <td bgcolor="#ececff">Channel input logic</td>
+</tr>
+<tr>
+  <td>GaNFET, MOSFET</td>
+  <td>4.5</td>
+  <td>5.5</td>
+  <td>5</td>
+  <td>-40 to 125</td>
+  <td>4</td>
+  <td>Catalog</td>
+  <td>0.035</td>
+  <td>7</td>
+  <td>3.5</td>
+  <td>0.09</td>
+  <td>TTL</td>
+  <td>TTL</td>
+</tr>
+</table>
+</li>
+<li><p>ADC: Not needed with a voltage divider.</p>
+</li>
+<li>communication: SPI</li>
+<li>Filter: L-C low pass filter with Cutoff frequency around 20kHz.</li>
+<li>Isolator: Since this gate driver uses a boostrap structure, so an isolator is not necessary.</li>
+</ul>
+<p>There are typically 2 solutions to design a bridge based amplifier:</p>
+<table>
+  <tr>
+    <td></td>
+    <td bgcolor="#ececff">Advantage</td>
+    <td bgcolor="#ececff">Disadvantage</td>
+  </tr>
+  <tr>
+    <td>Full bridge</td>
+    <td>Need only one V<sub>DD</sub> and supports freewheeling.</td>
+    <td>one additional group of transistors, more complicated driving strategy.</td>
+  </tr>
+  <tr>
+    <td>Half bridge</td>
+    <td>Easier controlling strategy with only one group of transistor.</td>
+    <td>Worse performance caused by higher power loss and more harmonis. Need both V<sub>DD</sub> and -V<sub>DD</sub>.</td>
+  </tr>
+</table>
+
+<p>Here we use the <strong>Full Bridge</strong> as our speaker amplifier.</p>
+<hr>
+<h1 id="Resource-compairation"><a href="#Resource-compairation" class="headerlink" title="Resource compairation"></a>Resource compairation</h1><p align="center">    
+<img src="Comparison.png" alt="Comparison" width="100%/">
+</p> 
+
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://cy-nigora.github.io">Chenyan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cy-nigora.github.io/2024/11/19/Device_Model_Selection/">https://cy-nigora.github.io/2024/11/19/Device_Model_Selection/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cy-nigora.github.io" target="_blank">Chenyan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Audio-Amplifier/">Audio Amplifier</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/10/30/GaN_driver/" title="Note of designing and analysing of GaN driver circuit"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Note of designing and analysing of GaN driver circuit</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/10/18/Audio_amplifier/" title="Comparasion of different Audio Amplifiers"><img class="cover" src="https://s2.loli.net/2024/10/20/kTUyLAWsHibPOCE.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-19</div><div class="title">Comparasion of different Audio Amplifiers</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2024/09/28/7XFGx5ICVnSBogt.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chenyan</div><div class="author-info__description">在德攻城狮</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CY-Nigora"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/CY-Nigora" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:jnigora732@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Whole-Structure-of-a-digital-class-D-Audio-amplifier"><span class="toc-number">1.</span> <span class="toc-text">Whole Structure of a digital (class-D) Audio amplifier</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analyse-And-Design-Of-Each-Main-Element"><span class="toc-number">2.</span> <span class="toc-text">Analyse And Design Of Each Main Element</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MicroController"><span class="toc-number">2.1.</span> <span class="toc-text">MicroController</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Peripheral-devices-Model-Selection"><span class="toc-number">2.2.</span> <span class="toc-text">Peripheral devices - Model Selection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-Stage-3-5mm-AUX-CABLE"><span class="toc-number">2.2.1.</span> <span class="toc-text">Input Stage - 3.5mm AUX CABLE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output-Stage-Speaker"><span class="toc-number">2.2.2.</span> <span class="toc-text">Output Stage - Speaker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-Selection"><span class="toc-number">2.3.</span> <span class="toc-text">- Model Selection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OPAMP-for-3-5mm-AUX"><span class="toc-number">2.3.1.</span> <span class="toc-text">OPAMP for 3.5mm AUX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-level-BOOST-Converter"><span class="toc-number">2.3.2.</span> <span class="toc-text">Multi-level BOOST Converter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bridge-based-Amplifier"><span class="toc-number">2.3.3.</span> <span class="toc-text">Bridge based Amplifier</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Resource-compairation"><span class="toc-number">3.</span> <span class="toc-text">Resource compairation</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/19/Device_Model_Selection/" title="Device Model of class D Audio amplifier">Device Model of class D Audio amplifier</a><time datetime="2024-11-19T16:00:00.000Z" title="发表于 2024-11-20 00:00:00">2024-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/30/GaN_driver/" title="Note of designing and analysing of GaN driver circuit">Note of designing and analysing of GaN driver circuit</a><time datetime="2024-10-30T16:00:00.000Z" title="发表于 2024-10-31 00:00:00">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/27/LTSpice_study_note/" title="LTSpice study Note">LTSpice study Note</a><time datetime="2024-10-27T16:00:00.000Z" title="发表于 2024-10-28 00:00:00">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/18/Audio_amplifier/" title="Comparasion of different Audio Amplifiers"><img src="https://s2.loli.net/2024/10/20/kTUyLAWsHibPOCE.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Comparasion of different Audio Amplifiers"/></a><div class="content"><a class="title" href="/2024/10/18/Audio_amplifier/" title="Comparasion of different Audio Amplifiers">Comparasion of different Audio Amplifiers</a><time datetime="2024-10-18T16:00:00.000Z" title="发表于 2024-10-19 00:00:00">2024-10-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/09/Debug%20towards%20process/" title="Debug towards process">Debug towards process</a><time datetime="2024-10-09T16:00:00.000Z" title="发表于 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Chenyan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hallo, willkommen zu meinem BLOG!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'forest' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.3" zIndex="-2" mobile="true" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
