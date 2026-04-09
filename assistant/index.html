@@ -33,51 +33,94 @@
         <header class="assistant-header">
           <div class="assistant-header__left">
             <h1 class="assistant-title">AI Assistant</h1>
-            <p class="assistant-subtitle">Single session · fixed model · refresh to reset</p>
+            <p class="assistant-subtitle">Password-gated · multimodal · refresh to reset</p>
           </div>
           <div class="assistant-header__right">
             <a class="assistant-home-link" href="/">Back to Home</a>
           </div>
         </header>
 
-        <main id="assistant-main" class="assistant-main">
-          <div id="assistant-empty" class="assistant-empty">
-            <div class="assistant-empty__card">
-              <h2>Ask anything</h2>
-              <p>This is version 1 of your site assistant. The conversation is not saved. Refreshing this page will reset everything.</p>
+        <section id="assistant-lock" class="assistant-lock">
+          <div class="assistant-lock__card">
+            <h2>Unlock AI Assistant</h2>
+            <p>Enter the password to start. Refreshing the page will require unlocking again.</p>
+
+            <div class="assistant-lock__controls">
+              <input
+                id="assistant-password"
+                class="assistant-password-input"
+                type="password"
+                placeholder="Enter password"
+                autocomplete="off"
+              >
+              <button id="assistant-unlock-btn" class="assistant-btn assistant-btn--primary" type="button">
+                Unlock
+              </button>
             </div>
+
+            <div id="assistant-lock-error" class="assistant-lock__error"></div>
+          </div>
+        </section>
+
+        <section id="assistant-panel" class="assistant-panel assistant-panel--hidden">
+          <div class="assistant-toolbar">
+            <div class="assistant-toolbar__group">
+              <label class="assistant-label" for="assistant-model">Model</label>
+              <select id="assistant-model" class="assistant-select">
+                <option value="gemini-2.5-flash" selected>gemini-2.5-flash</option>
+                <option value="gemini-2.5-pro">gemini-2.5-pro</option>
+              </select>
+            </div>
+
+            <div class="assistant-toolbar__group">
+              <label class="assistant-label" for="assistant-image">Image</label>
+              <input id="assistant-image" class="assistant-file-input" type="file" accept="image/*">
+            </div>
+
+            <div id="assistant-image-meta" class="assistant-image-meta"></div>
           </div>
 
-          <div id="assistant-messages" class="assistant-messages"></div>
-        </main>
-
-        <footer class="assistant-footer">
-          <form id="assistant-form" class="assistant-form">
-            <textarea
-              id="assistant-input"
-              class="assistant-input"
-              placeholder="Type your message here..."
-              rows="1"
-            ></textarea>
-
-            <div class="assistant-actions">
-              <button id="assistant-send" class="assistant-btn assistant-btn--primary" type="submit">
-                Send
-              </button>
-              <button id="assistant-clear" class="assistant-btn assistant-btn--secondary" type="button">
-                Clear
-              </button>
+          <main id="assistant-main" class="assistant-main">
+            <div id="assistant-empty" class="assistant-empty">
+              <div class="assistant-empty__card">
+                <h2>Ask anything</h2>
+                <p>You can chat, switch models, and upload one image per message. Switching the model will reset the current conversation.</p>
+              </div>
             </div>
-          </form>
-        </footer>
+
+            <div id="assistant-messages" class="assistant-messages"></div>
+          </main>
+
+          <footer class="assistant-footer">
+            <form id="assistant-form" class="assistant-form">
+              <textarea
+                id="assistant-input"
+                class="assistant-input"
+                placeholder="Type your message here..."
+                rows="1"
+              ></textarea>
+
+              <div class="assistant-actions">
+                <button id="assistant-send" class="assistant-btn assistant-btn--primary" type="submit">
+                  Send
+                </button>
+                <button id="assistant-clear" class="assistant-btn assistant-btn--secondary" type="button">
+                  Clear
+                </button>
+              </div>
+            </form>
+          </footer>
+        </section>
       </div>
     </div>
 
     <script>
       window.ASSISTANT_CONFIG = {
-        apiBaseUrl: 'https://llm-assistant-backend-1gat.vercel.app/api/chat',
-        pageTitle: 'AI Assistant'
-};
+        apiBaseUrl: 'https://llm-assistant-backend.vercel.app/api/chat',
+        authUrl: 'https://llm-assistant-backend.vercel.app/api/auth',
+        pageTitle: 'AI Assistant',
+        defaultModel: 'gemini-2.5-flash'
+      };
     </script>
     <script src="/js/assistant.js"></script>
   </body>
