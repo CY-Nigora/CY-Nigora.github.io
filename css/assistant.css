@@ -1,0 +1,252 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.assistant-page {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 25%),
+    #f7f9fb;
+}
+
+.assistant-shell {
+  width: min(980px, 100%);
+  height: calc(100vh - 48px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.assistant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.assistant-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.assistant-subtitle {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.assistant-home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #111827;
+  background: #f3f4f6;
+  transition: 0.2s ease;
+}
+
+.assistant-home-link:hover {
+  background: #e5e7eb;
+}
+
+.assistant-main {
+  position: relative;
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.8) 0%, #ffffff 100%);
+}
+
+.assistant-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assistant-empty.is-hidden {
+  display: none;
+}
+
+.assistant-empty__card {
+  max-width: 560px;
+  text-align: center;
+  padding: 32px;
+  border-radius: 18px;
+  background: #f9fafb;
+  border: 1px dashed #d1d5db;
+}
+
+.assistant-empty__card h2 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+}
+
+.assistant-empty__card p {
+  margin: 0;
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+.assistant-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.assistant-message {
+  display: flex;
+}
+
+.assistant-message--user {
+  justify-content: flex-end;
+}
+
+.assistant-message--assistant {
+  justify-content: flex-start;
+}
+
+.assistant-bubble {
+  max-width: min(760px, 86%);
+  padding: 14px 16px;
+  border-radius: 16px;
+  line-height: 1.7;
+  word-break: break-word;
+  white-space: pre-wrap;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.assistant-message--user .assistant-bubble {
+  background: #2563eb;
+  color: #ffffff;
+  border-bottom-right-radius: 6px;
+}
+
+.assistant-message--assistant .assistant-bubble {
+  background: #f3f4f6;
+  color: #111827;
+  border-bottom-left-radius: 6px;
+}
+
+.assistant-message--system .assistant-bubble {
+  margin: 0 auto;
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+}
+
+.assistant-footer {
+  padding: 16px 20px 20px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  background: #ffffff;
+}
+
+.assistant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.assistant-input {
+  width: 100%;
+  min-height: 56px;
+  max-height: 180px;
+  resize: vertical;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.assistant-input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15);
+}
+
+.assistant-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.assistant-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.assistant-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.assistant-btn--primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.assistant-btn--primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.assistant-btn--secondary {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.assistant-btn--secondary:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+  .assistant-page {
+    padding: 0;
+  }
+
+  .assistant-shell {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+
+  .assistant-header,
+  .assistant-main,
+  .assistant-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .assistant-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .assistant-bubble {
+    max-width: 92%;
+  }
+}

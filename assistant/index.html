@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>AI Assistant | Chenyan&#39;s Blog</title>
+
+    
+      <meta name="description" content="Single-session AI assistant page.">
+    
+
+    
+      <link rel="icon" href="/theme_img/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/assistant.css">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f7f9fb;
+        color: #1f2937;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+    </style>
+  <meta name="generator" content="Hexo 7.1.1"></head>
+
+  <body>
+    <div id="assistant-app" class="assistant-page">
+      <div class="assistant-shell">
+        <header class="assistant-header">
+          <div class="assistant-header__left">
+            <h1 class="assistant-title">AI Assistant</h1>
+            <p class="assistant-subtitle">Single session · fixed model · refresh to reset</p>
+          </div>
+          <div class="assistant-header__right">
+            <a class="assistant-home-link" href="/">Back to Home</a>
+          </div>
+        </header>
+
+        <main id="assistant-main" class="assistant-main">
+          <div id="assistant-empty" class="assistant-empty">
+            <div class="assistant-empty__card">
+              <h2>Ask anything</h2>
+              <p>This is version 1 of your site assistant. The conversation is not saved. Refreshing this page will reset everything.</p>
+            </div>
+          </div>
+
+          <div id="assistant-messages" class="assistant-messages"></div>
+        </main>
+
+        <footer class="assistant-footer">
+          <form id="assistant-form" class="assistant-form">
+            <textarea
+              id="assistant-input"
+              class="assistant-input"
+              placeholder="Type your message here..."
+              rows="1"
+            ></textarea>
+
+            <div class="assistant-actions">
+              <button id="assistant-send" class="assistant-btn assistant-btn--primary" type="submit">
+                Send
+              </button>
+              <button id="assistant-clear" class="assistant-btn assistant-btn--secondary" type="button">
+                Clear
+              </button>
+            </div>
+          </form>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      window.ASSISTANT_CONFIG = {
+        apiBaseUrl: 'https://llm-assistant-backend-1gat.vercel.app/api/chat',
+        pageTitle: 'AI Assistant'
+};
+    </script>
+    <script src="/js/assistant.js"></script>
+  </body>
+</html>
